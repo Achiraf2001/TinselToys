@@ -1,0 +1,66 @@
+<div class="item">
+   <span class="category">Sapin</span>
+    <h6>$2.264.000</h6>
+    <h4><strong>🎄 Le sapin parfait pour un Noël enchanteur ! 🎄</strong></h4>
+    <p>
+      Transformez votre maison en un havre de magie avec ce sapin de Noël élégant et durable. Facile à monter et conçu pour durer plusieurs années.
+    </p>
+    
+    <!-- Section pour afficher la note -->
+    <div class="rating-display">
+      <span class="stars">★★★★☆</span>
+      <span class="average">(4.2/5)</span>
+    </div>
+  
+    <div class="main-button">
+      <a href="property-details.html">Découvrir maintenant</a>
+    </div>
+  </div>
+  <style>.rating-display {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .rating-display .stars {
+    color: gold;
+    font-size: 1.5rem;
+  }
+  
+  .rating-display .average {
+    font-size: 1rem;
+    color: #333;
+    margin-left: 5px;
+  }
+  </style>
+  <script>
+    // Notes des articles définies manuellement
+    const ratings = {
+      "Sapin": { stars: 3.2 },
+      "Ornement avec boules": { stars: 4.5 },
+      "Monster Truck": { stars: 4.7 },
+      "Lego City pour Noël": { stars: 4.6 },
+      "ATM Gaming Speedback": { stars: 4.8 },
+      "Voiture télécommandée": { stars: 4.3 },
+      "Babies": { stars: 4.4 },
+      "Squishmallows": { stars: 4.9 },
+    };
+  
+    // Mise à jour des étoiles et des moyennes
+    document.querySelectorAll('.item').forEach(item => {
+      const category = item.querySelector('.category').textContent.trim();
+      const ratingData = ratings[category];
+  
+      if (ratingData) {
+        // Génération des étoiles
+        const stars = "★★★★★".slice(0, Math.floor(ratingData.stars)) +
+                      "☆".repeat(5 - Math.floor(ratingData.stars));
+  
+        // Mise à jour des étoiles et de la moyenne
+        item.querySelector('.rating-display .stars').textContent = stars;
+        item.querySelector('.rating-display .average').textContent = `(${ratingData.stars.toFixed(1)}/5)`;
+      }
+    });
+  </script>
+  
